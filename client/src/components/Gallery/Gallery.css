@@ -1,0 +1,17 @@
+
+li {
+    list-style-type: none;
+}
+
+.b-gallery {
+    display: flex;
+    gap: 10px;
+}
+
+.b-card {
+    width: 25%;
+}
+
+.b-image {
+    width: 100%;
+}
