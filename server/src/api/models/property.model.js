@@ -15,8 +15,8 @@ const propertySchema = new Schema (
         image: {type: String},
         geometry: {
             location: {
-                lat: {type: Number, required: true},
-                lng: {type: Number, required: true},
+                lat: {type: Number, required: false},
+                lng: {type: Number, required: false},
             },
             boundingBox: [{type: Number, required: false}]
 

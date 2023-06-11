@@ -1,0 +1,13 @@
+.b-detail {
+    display: flex;
+    padding: 12% 10%;
+}
+
+.b-detail__img {
+    width: 40%;
+}
+
+.b-detail__text {
+    text-align: start;
+    margin: 20px;
+}

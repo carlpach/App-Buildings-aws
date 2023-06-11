@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const APIHeaders = {
   Accept: 'application/json',
-  'Content-type': 'application/json',
+  'Content-type': 'multipart/form-data',
 };
 
 const API = axios.create({

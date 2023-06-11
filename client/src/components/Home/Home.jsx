@@ -1,4 +1,6 @@
 import Gallery from "../Gallery/Gallery";
+import NavBar from "../NavBar/NavBar";
+import './Home.css';
 
 const Home = ( { buildings } ) => {
 
@@ -7,7 +9,8 @@ const Home = ( { buildings } ) => {
 
 
   return (
-    <div>
+    <div className="b-home">
+      <NavBar> navbar</NavBar>
       <Gallery buildings = {buildings} />
     </div>
   )
