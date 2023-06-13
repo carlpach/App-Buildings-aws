@@ -9,8 +9,10 @@ PORT = process.env.PORT;
 
 const propertiesRoutes = require("./src/api/routes/property.routes")
 const ownersRoutes = require("./src/api/routes/owner.routes")
+const userRoutes = require('./src/api/routes/users.routes');
 
 const {connect} = require('./src/utils/db');
+const { isAuth } = require('./src/middlewares/auth');
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
@@ -44,5 +46,16 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/properties", propertiesRoutes);
 app.use("/owners", ownersRoutes);
+app.use("/users", userRoutes);
+
+// Ruta para manejar rutas no encontradas
+app.use('*', (req, res) => {
+  res.status(404).json('Route not found');
+});
+
+// Manejo de errores inesperados
+app.use((error, req, res, next) => {
+  return res.status(error.status || 500).json(`Error: ${error.message || "Unexpected error"}`);
+});
 
 app.listen(PORT,  () => console.log('listening on port', PORT));

@@ -34,23 +34,22 @@ const putOwners = async (req, res) => {
     console.log(req.file)
     try {
         const {id} = req.params;
-        const putLibro = new Owner(req.body);
-        putLibro._id = id; 
-        console.log("req.file ------", req.file);       
-        console.log("putLibro.image ------", putLibro.image);       
+        const putOwner = new Owner(req.body);
+        putOwner._id = id; 
+        console.log("req.file ------", req.body);       
         if(req.file){
-            putLibro.image = req.file.path;
+            putOwner.image = req.file.path;
         }
-        console.log("putowner ------", putLibro);       
-        const updatedLibro = await Libro.findByIdAndUpdate(id, putLibro)
-        console.log("updatedowner------", updatedLibro);       
-        if(!updatedLibro){
-            return res.status(404).json({message: "El id de este libro no existe"});
+        console.log("putowner ------", putOwner);       
+        const updatedOwner = await Owner.findByIdAndUpdate(id, putOwner)
+        console.log("updatedowner------", updatedOwner);       
+        if(!updatedOwner){
+            return res.status(404).json({message: "El id de este owner no existe"});
         }
-        if(updatedLibro.portada !== putLibro.portada){
-            deleteFile(updatedLibro.portada);
+        if(updatedOwner.image !== putOwner.image){
+            deleteFile(updatedOwner.image);
         }
-        return res.status(200).json(updatedLibro);
+        return res.status(200).json(updatedOwner);
     } catch (error) {
         return res.status(500).json(error)
     }

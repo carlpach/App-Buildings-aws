@@ -10,7 +10,6 @@ const Home = ( { buildings } ) => {
 
   return (
     <div className="b-home">
-      <NavBar> navbar</NavBar>
       <Gallery buildings = {buildings} />
     </div>
   )

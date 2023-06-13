@@ -3,8 +3,6 @@ import "./AddBuilding.css";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-import NavBar from "../NavBar/NavBar";
-
 import  API  from "../../services/api";
 
 // initial state of form
@@ -57,7 +55,6 @@ const AddBuilding = () => {
 
   return (
     <div>
-    <NavBar />
       <form className="b-form" onSubmit={(ev) => ev.preventDefault()}>
         <label htmlFor="name">Image</label>
         <input type="file" id="image" name="image" onChange={handleInputImg}></input>

@@ -8,7 +8,7 @@ const propertySchema = new Schema (
         constructionYear: {type: Number, required: true},
         shareholders: [
             {
-                owner: {type: Schema.Types.ObjectId, ref: "owner"},
+                owner: {type: Schema.Types.ObjectId, ref: "user"},
                 share: {type: Number, required: false}
             }
         ],
