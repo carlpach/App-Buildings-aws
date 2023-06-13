@@ -1,5 +1,4 @@
 import Gallery from "../Gallery/Gallery";
-import NavBar from "../NavBar/NavBar";
 import './Home.css';
 
 const Home = ( { buildings } ) => {

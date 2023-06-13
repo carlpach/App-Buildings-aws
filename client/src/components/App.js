@@ -47,7 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home buildings = {buildings} />} />
         <Route path="/Profile" element={<Profile buildings = {buildings} user = {user}/>} />
-        <Route path="/building/:id" element={<Detail buildings = {buildings}/>} />
+        <Route path="/building/:id" element={<Detail buildings = {buildings} user={user}/>} />
         <Route path="/add" element={<AddBuilding />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

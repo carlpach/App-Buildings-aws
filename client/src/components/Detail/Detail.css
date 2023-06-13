@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+
 .b-detail {
     display: flex;
     padding: 12% 10%;
@@ -11,3 +14,16 @@
     text-align: start;
     margin: 20px;
 }
+
+
+.material-icons--grey {
+
+    color: rgb(61, 182, 67);
+  
+  }
+
+  .material-icons--red {
+
+    color: rgb(223, 101, 31);
+  
+  }
