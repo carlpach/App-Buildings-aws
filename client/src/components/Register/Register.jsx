@@ -25,6 +25,7 @@ const Register = () => {
                <input type="submit" value="Sign up" onClick={handleSubmitForm}/>
 
            </form>
+      
     </div>
   )
 }
