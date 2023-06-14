@@ -26,7 +26,7 @@ const handleCancel = () => {
             <form onSubmit={(ev) => ev.preventDefault()}>
                
                 <label htmlFor="email">Email</label>
-                <input type="text" id="email" name="email" onChange = {handleInput} value = {formData.email }/>
+                <input type="text" id="email" name="email" placeholder = "email@upgrade.com" onChange = {handleInput} value = {formData.email }/>
                 <br />
 
                 <label htmlFor="password">Password</label>

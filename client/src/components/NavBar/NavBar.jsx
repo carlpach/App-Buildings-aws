@@ -13,6 +13,9 @@ const NavBar = () => {
       <Link to="/Login">
         <span class="material-icons">login</span>
       </Link>
+      <Link to="/Register">
+        <span class="material-icons">register</span>
+      </Link>
       <Link to="/">
         <span className="material-icons">logout</span>
       </Link>

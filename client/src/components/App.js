@@ -11,6 +11,7 @@ import NavBar from "./NavBar/NavBar";
 import { useEffect, useState } from 'react';
 import Login from './Login/Login';
 import AuthRoute from './AuthRoute/AuthRoute';
+import Register from './Register/Register';
 
 
 
@@ -73,6 +74,7 @@ function App() {
         <Route path="/Profile" element={<AuthRoute buildings={buildings} user={user} component={Profile} />} />
         <Route path="/Login" element={<Login loginUser = {loginUser} loginError = {loginError}/>} />
         {/* <Route path="/Profile" element={<Profile buildings = {buildings} user = {user}/>} /> */ }
+        <Route path="/Register" element={<Register/>} />
         <Route path="/building/:id" element={<Detail buildings = {buildings} user={user}/>} />
         <Route path="/add" element={<AddBuilding />} />
         <Route path="*" element={<NotFound />} />
