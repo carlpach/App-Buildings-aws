@@ -3,9 +3,11 @@ import "./Detail.css";
 import { useNavigate } from 'react-router-dom';
 import  { APIJson }  from "../../services/api";
 
-const Detail = ({ buildings, user }) => {
+const Detail = ({ buildings, user, handleUser }) => {
 
     const navigate = useNavigate();
+    console.log("detail page running -------");
+    console.log(user);
 
     const { id } = useParams()
     console.log(id)
@@ -18,15 +20,16 @@ const Detail = ({ buildings, user }) => {
     const handleAddBuildingToUser = (ev) => {
         console.log("handle click add build to user -------");
         console.log(id);
-        console.log(user._id);
-        APIJson.put(`/users/${id}`, {_id: user._id})
+        APIJson.put(`/users/${id}`, {_id: user.user._id})
         .then( (resp) => {
                 console.log(resp);
-                alert("Added!")
+                alert(`Added to user ${user.user.userName}`)
                 setTimeout(() => {
-                    navigate('/');    
+                    navigate('/profile');    
                 }, 500);
-
+                
+                console.log("response data ------", resp.data);
+                handleUser(resp.data);
                 return resp.data
                 },
                 (error) => {
@@ -34,6 +37,28 @@ const Detail = ({ buildings, user }) => {
                 }
         )
     }
+
+
+    const handleDeleteBuildingToUser = (ev) => {
+      console.log("handle click add build to user -------");
+      console.log(id);
+      APIJson.put(`/users/${id}`, {_id: user.user._id})
+      .then( (resp) => {
+              console.log(resp);
+              alert(`Deleted for user ${user.user.userName}`)
+              setTimeout(() => {
+                  navigate('/profile');    
+              }, 500);
+              
+              console.log("response data ------", resp.data);
+              handleUser(resp.data);
+              return resp.data
+              },
+              (error) => {
+                  console.log(error);
+              }
+      )
+  }
 
   return (
       <>

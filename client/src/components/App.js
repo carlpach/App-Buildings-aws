@@ -1,6 +1,7 @@
 import '../styles/App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { API } from "../services/api";
+import { APIJson } from "../services/api";
 
 import NotFound from './NotFound';
 import Home from './Home/Home';
@@ -23,30 +24,36 @@ function App() {
   const [user, setUser] = useState (null);
   const [loginError, setLoginError] = useState ("");
   const navigate = useNavigate ()
-  // formData es lo que ya ha rellenado el usuario. En esta variable se almacena informacion sobre usuario en caso de existir. Se ejecuta funcion cuando se rellena el formulario de Login
-  const loginUser = (formData) => {
-    const existUser = userList.find((userLog)=>{
-      return userLog.email === formData.email && userLog.password === formData.password 
-    });
-// hay que hacer validacion
-      if (existUser) {setUser (existUser);
-        setLoginError ("");
-        navigate("/Profile")
-    } else {
-      setUser (false);
-      setLoginError ("Wrong user or password")
-    }  }
 
   const [buildings, setBuildings] = useState([]);
 
-  const userList = 
-    {
-      surname: 'Pacheco',
-      _id: '6488b3f8915eb09a01e89add',
-      properties: ['648495285b17049a6de281f0'],
-      name: 'Carla',
-      role: "user"
+  const handleUser = (value) => {
+    setUser(value);
+  };
 
+  // formData es lo que ya ha rellenado el usuario. En esta variable se almacena informacion sobre usuario en caso de existir. Se ejecuta funcion cuando se rellena el formulario de Login
+  const loginUser = (formData) => {
+    console.log("login user ---------------");
+    console.log(formData);
+    APIJson.post(`/users/login`, formData)
+    .then( (resp) => {
+              console.log(formData);
+              console.log(resp);
+              setTimeout(() => {
+                  navigate('/profile');    
+              }, 500);
+              setUser(resp.data);
+              setLoginError ("");
+              navigate("/Profile")
+              return resp.data
+            },
+
+            (error) => {
+                setUser (false)
+                setLoginError ("Wrong user or password")
+                console.log(error);
+                  }
+      )
     }
 
   useEffect(() => {
@@ -61,8 +68,6 @@ function App() {
     );
   }, []);
 
-  console.log("running App");
-  console.log("buildings In App-------", buildings);
 
   return (
     <div>
@@ -70,15 +75,21 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home buildings = {buildings} />} />
-        <Route path="/Profile" element={<AuthRoute buildings={buildings} user={user} component={Profile} />} />
+        <Route path="/Profile" 
+                element={<AuthRoute 
+                  user={user} 
+                  component={<Profile buildings = {buildings} user = {user} />} 
+                  />} 
+                  
+        />
         <Route path="/Login" element={<Login loginUser = {loginUser} loginError = {loginError}/>} />
         {/* <Route path="/Profile" element={<Profile buildings = {buildings} user = {user}/>} /> */ }
-        <Route path="/building/:id" element={<Detail buildings = {buildings} user={user}/>} />
+        <Route path="/building/:id" element={<Detail buildings = {buildings} user={user} handleUser={handleUser}/>} />
         <Route path="/add" element={<AddBuilding />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
-}
+  }
 
 export default App
