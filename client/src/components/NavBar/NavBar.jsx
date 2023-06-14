@@ -11,6 +11,9 @@ const NavBar = () => {
       <Link to="/Profile">
         <span class="material-icons">person</span>
       </Link>
+      <Link to="/Login">
+        <span class="material-icons">login</span>
+      </Link>
       <Link to="/">
         <span class="material-icons">logout</span>
       </Link>

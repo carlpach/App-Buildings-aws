@@ -1,5 +1,5 @@
 import '../styles/App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import API from "../services/api";
 
 import NotFound from './NotFound';
@@ -9,14 +9,37 @@ import AddBuilding from './AddBuilding/AddBuilding';
 import Profile from './Profile/Profile';
 import NavBar from "./NavBar/NavBar";
 import { useEffect, useState } from 'react';
+import Login from './Login/Login';
+import AuthRoute from './AuthRoute/AuthRoute';
+
+
 
 function App() {
 
   console.log("running app");
 
+  // crear variable de estado que va a contenter informacion del usuario. Null porque usuario aun no esta definido
+
+  const [user, setUser] = useState (null);
+  const [loginError, setLoginError] = useState ("");
+  const navigate = useNavigate ()
+  // formData es lo que ya ha rellenado el usuario. En esta variable se almacena informacion sobre usuario en caso de existir. Se ejecuta funcion cuando se rellena el formulario de Login
+  const loginUser = (formData) => {
+    const existUser = userList.find((userLog)=>{
+      return userLog.email === formData.email && userLog.password === formData.password 
+    });
+// hay que hacer validacion
+      if (existUser) {setUser (existUser);
+        setLoginError ("");
+        navigate("/Profile")
+    } else {
+      setUser (false);
+      setLoginError ("Wrong user or password")
+    }  }
+
   const [buildings, setBuildings] = useState([]);
 
-  const user = 
+  const userList = 
     {
       surname: 'Pacheco',
       _id: '64802856826edcc1facaa98a',
@@ -46,7 +69,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home buildings = {buildings} />} />
-        <Route path="/Profile" element={<Profile buildings = {buildings} user = {user}/>} />
+        <Route path="/Profile" element={<AuthRoute buildings={buildings} user={user} component={Profile} />} />
+        <Route path="/Login" element={<Login loginUser = {loginUser} loginError = {loginError}/>} />
         <Route path="/building/:id" element={<Detail buildings = {buildings}/>} />
         <Route path="/add" element={<AddBuilding />} />
         <Route path="*" element={<NotFound />} />
@@ -55,4 +79,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

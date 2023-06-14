@@ -1,0 +1,21 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login form {
+    width: 25%;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    width: 100%;
+}
+
+.login input[type="submit"],
+.login input[type="button"] {
+    width: 100%;
+    margin-top: 10px;
+}
