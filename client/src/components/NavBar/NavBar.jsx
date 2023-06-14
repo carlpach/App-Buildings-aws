@@ -5,13 +5,13 @@ const NavBar = () => {
   return (
     <div className="b-navbar">
       <Link to="/">
-        <span class="material-icons">home</span>
+        <span className="material-icons">home</span>
       </Link>
       <Link to="/Profile">
-        <span class="material-icons">person</span>
+        <span className="material-icons">person</span>
       </Link>
       <Link to="/">
-        <span class="material-icons">logout</span>
+        <span className="material-icons">logout</span>
       </Link>
 
     </div>

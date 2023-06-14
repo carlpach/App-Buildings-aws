@@ -1,6 +1,6 @@
 import '../styles/App.css';
 import { Routes, Route } from 'react-router-dom';
-import API from "../services/api";
+import { API } from "../services/api";
 
 import NotFound from './NotFound';
 import Home from './Home/Home';
@@ -19,9 +19,10 @@ function App() {
   const user = 
     {
       surname: 'Pacheco',
-      _id: '64802856826edcc1facaa98a',
+      _id: '6488b3f8915eb09a01e89add',
       properties: ['648495285b17049a6de281f0'],
       name: 'Carla',
+      role: "user"
 
     }
 

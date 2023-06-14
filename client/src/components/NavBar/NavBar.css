@@ -28,7 +28,7 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-    color: white;
+    color: rgb(187, 187, 187);
   
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;

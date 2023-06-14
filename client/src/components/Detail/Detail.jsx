@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import "./Detail.css";
 import { useNavigate } from 'react-router-dom';
-import  API  from "../../services/api";
+import  { APIJson }  from "../../services/api";
 
 const Detail = ({ buildings, user }) => {
 
@@ -15,10 +15,13 @@ const Detail = ({ buildings, user }) => {
     ))
     console.log(building)
 
-    const handleAddBuildingToUser = () => {
+    const handleAddBuildingToUser = (ev) => {
         console.log("handle click add build to user -------");
-        API.put(`/users:${id}`, )
+        console.log(id);
+        console.log(user._id);
+        APIJson.put(`/users/${id}`, {_id: user._id})
         .then( (resp) => {
+                console.log(resp);
                 alert("Added!")
                 setTimeout(() => {
                     navigate('/');    
@@ -32,7 +35,6 @@ const Detail = ({ buildings, user }) => {
         )
     }
 
-
   return (
       <>
         <div className='b-detail'>
@@ -42,8 +44,8 @@ const Detail = ({ buildings, user }) => {
             <h3>{building.constructionYear}</h3>            
           </div>
           <div>
-          <span onclick={ handleAddBuildingToUser } class="material-icons material-icons--grey">post_add</span>
-          <span class="material-icons material-icons--red">delete</span>
+          <span onClick={ handleAddBuildingToUser } className="material-icons material-icons--grey">post_add</span>
+          <span className="material-icons material-icons--red">delete</span>
           </div>
               
         </div>      
