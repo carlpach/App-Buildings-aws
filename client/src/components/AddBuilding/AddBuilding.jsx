@@ -7,7 +7,7 @@ import  { API }  from "../../services/api";
 
 // initial state of form
 const initState = {
-    name : "test66",
+    name : "your building name",
     constructionYear : "1998",
     image : "",
 

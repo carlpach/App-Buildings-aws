@@ -9,7 +9,8 @@ const Home = ( { buildings } ) => {
 
   return (
     <div className="b-home">
-      <Gallery buildings = {buildings} />
+    
+      <Gallery buildings = {buildings}  flagAdd = {true} />
     </div>
   )
 }
