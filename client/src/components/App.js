@@ -1,6 +1,6 @@
 import '../styles/App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import API from "../services/api";
+import { API } from "../services/api";
 
 import NotFound from './NotFound';
 import Home from './Home/Home';
@@ -42,9 +42,10 @@ function App() {
   const userList = 
     {
       surname: 'Pacheco',
-      _id: '64802856826edcc1facaa98a',
+      _id: '6488b3f8915eb09a01e89add',
       properties: ['648495285b17049a6de281f0'],
       name: 'Carla',
+      role: "user"
 
     }
 
@@ -71,7 +72,8 @@ function App() {
         <Route path="/" element={<Home buildings = {buildings} />} />
         <Route path="/Profile" element={<AuthRoute buildings={buildings} user={user} component={Profile} />} />
         <Route path="/Login" element={<Login loginUser = {loginUser} loginError = {loginError}/>} />
-        <Route path="/building/:id" element={<Detail buildings = {buildings}/>} />
+        {/* <Route path="/Profile" element={<Profile buildings = {buildings} user = {user}/>} /> */ }
+        <Route path="/building/:id" element={<Detail buildings = {buildings} user={user}/>} />
         <Route path="/add" element={<AddBuilding />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

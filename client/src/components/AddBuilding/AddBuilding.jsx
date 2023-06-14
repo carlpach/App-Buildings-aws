@@ -3,7 +3,7 @@ import "./AddBuilding.css";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-import  API  from "../../services/api";
+import  { API }  from "../../services/api";
 
 // initial state of form
 const initState = {
@@ -19,9 +19,9 @@ const AddBuilding = () => {
 
     const navigate = useNavigate();
 
-
     const handleSubmit = () => {
         console.log("handle click ---------------");
+        console.log(formInputs);
         API.post("/properties", formInputs)
         .then(
             (resp) => {

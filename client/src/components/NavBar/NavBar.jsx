@@ -1,21 +1,20 @@
 import "./NavBar.css";
 import { Link } from "react-router-dom"
-import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 const NavBar = () => {
   return (
     <div className="b-navbar">
       <Link to="/">
-        <span class="material-icons">home</span>
+        <span className="material-icons">home</span>
       </Link>
       <Link to="/Profile">
-        <span class="material-icons">person</span>
+        <span className="material-icons">person</span>
       </Link>
       <Link to="/Login">
         <span class="material-icons">login</span>
       </Link>
       <Link to="/">
-        <span class="material-icons">logout</span>
+        <span className="material-icons">logout</span>
       </Link>
 
     </div>

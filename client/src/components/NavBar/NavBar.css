@@ -1,14 +1,6 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
-}
-
 .b-navbar {
     position:fixed;
     display: flex;
@@ -36,7 +28,7 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-    color: white;
+    color: rgb(187, 187, 187);
   
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
