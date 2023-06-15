@@ -25,7 +25,7 @@ const Detail = ({ buildings, user, handleUser }) => {
                 console.log(resp);
                 alert(`Added to user ${user.user.userName}`)
                 setTimeout(() => {
-                    navigate('/profile');    
+                    navigate('/');    
                 }, 500);
                 
                 console.log("response data ------", resp.data);

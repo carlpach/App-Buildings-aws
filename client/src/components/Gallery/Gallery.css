@@ -9,14 +9,14 @@ a {
 }
 
 .b-gallery {
-    padding: 60px 20px 30px 80px;
+    padding: 30px 20px 30px 80px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 }
 
 .b-card {
-    width: 22%;
+    width: 18%;
     min-width: 275px;
 }
 
@@ -24,7 +24,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 22%;
+    width: 18%;
     min-width: 275px;
     background-color: rgb(192, 192, 192);
     border-radius: 10px;

@@ -6,14 +6,21 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 40px;
-    width: 35px;
+    justify-content: space-between;
+    width: 60px;
     height: 100%;
-    padding: 20px 10px;
     background-color: rgb(112, 112, 112);
     color: rgb(255, 255, 255);
     box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+
+.b-navbar__item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 20px 0;
 }
 
 .material-icons {
@@ -40,4 +47,8 @@
   
     /* Support for IE. */
     font-feature-settings: 'liga';
+  }
+
+  .material-icons:hover {
+    color: rgb(126, 126, 126);
   }
