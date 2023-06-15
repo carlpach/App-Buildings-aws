@@ -41,11 +41,10 @@ function App() {
               console.log(formData);
               console.log(resp);
               setTimeout(() => {
-                  navigate('/profile');    
+                  navigate('/');    
               }, 500);
               setUser(resp.data);
               setLoginError ("");
-              navigate("/Profile")
               return resp.data
             },
 
@@ -56,6 +55,30 @@ function App() {
                   }
       )
     }
+  
+    const registerUser = (formData) => {
+      console.log("register user ---------------");
+      console.log(formData);
+      APIJson.post(`/users/register`, formData)
+      .then( (resp) => {
+                console.log(formData);
+                console.log(resp);
+                setTimeout(() => {
+                    navigate('/profile');    
+                }, 500);
+                setUser(resp.data);
+                setLoginError ("");
+                navigate("/")
+                return resp.data
+              },
+  
+              (error) => {
+                  setUser (false)
+                  setLoginError ("Wrong user or password")
+                  console.log(error);
+                    }
+        )
+      }
 
   useEffect(() => {
     API.get("/properties")
@@ -67,7 +90,7 @@ function App() {
         console.log(error);
       }
     );
-  }, []);
+  }, [buildings]);
 
 
   return (
@@ -75,7 +98,11 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route path="/" element={<Home buildings = {buildings} />} />
+        <Route path="/" element={<AuthRoute 
+                  user={user} 
+                  component={<Home buildings = {buildings} />} 
+                  />}         
+        />
         <Route path="/Profile" 
                 element={<AuthRoute 
                   user={user} 
@@ -86,7 +113,7 @@ function App() {
         <Route path="/Login" element={<Login loginUser = {loginUser} loginError = {loginError}/>} />
         {/* <Route path="/Profile" element={<Profile buildings = {buildings} user = {user}/>} /> */ }
         <Route path="/building/:id" element={<Detail buildings = {buildings} user={user} handleUser={handleUser}/>} />
-        <Route path="/Register" element={<Register/>} />
+        <Route path="/Register" element={<Register registerUser = {registerUser}/>} />
         <Route path="/add" element={<AddBuilding />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
