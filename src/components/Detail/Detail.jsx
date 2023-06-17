@@ -50,9 +50,9 @@ const Detail = ({ buildings, user, handleUser }) => {
 
 
     const handleDeleteBuildingToUser = (ev) => {
-      console.log("handle click add build to user -------");
+      console.log("handle click delete building to user -------");
       console.log(id);
-      APIJson.put(`/users/${id}`, {_id: user.user._id})
+      APIJson.put(`/users/deleteProp/${id}`, {_id: user.user._id})
       .then( (resp) => {
               console.log(resp);
               alert(`Deleted for user ${user.user.userName}`)
@@ -61,7 +61,7 @@ const Detail = ({ buildings, user, handleUser }) => {
               }, 500);
               
               console.log("response data ------", resp.data);
-              handleUser(resp.data);
+              handleUser({"user": resp.data, "token": user.token});
               return resp.data
               },
               (error) => {
@@ -80,7 +80,7 @@ const Detail = ({ buildings, user, handleUser }) => {
           </div>
           <div>
           <span onClick={ handleAddBuildingToUser } className="material-icons material-icons--grey">post_add</span>
-          <span className="material-icons material-icons--red">delete</span>
+          <span onClick={ handleDeleteBuildingToUser } className="material-icons material-icons--red">delete</span>
           </div>
               
         </div>      
