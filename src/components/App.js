@@ -22,7 +22,15 @@ function App() {
 
   // crear variable de estado que va a contenter informacion del usuario. Null porque usuario aun no esta definido
 
-  const [user, setUser] = useState (null);
+  const initStateUser = {
+    user: {
+      email: "",
+      password: ""
+    },
+    token: ""
+  }
+
+  const [user, setUser] = useState (initStateUser);
   const [loginError, setLoginError] = useState ("");
   const navigate = useNavigate ()
 
@@ -93,29 +101,36 @@ function App() {
     );
   }, []);
 
+  console.log("user in App ------>", user);
+  console.log("buildings in App ------>", buildings);
 
   return (
     <div>
-      <NavBar />
-
+      { user.user.email ? <NavBar /> : <></> }
       <Routes>
-        <Route path="/" element={<AuthRoute 
+        <Route path="/" element={
+                  <AuthRoute 
                   user={user} 
                   component={<Home buildings = {buildings} />} 
                   />}         
         />
         <Route path="/Profile" 
-                element={<AuthRoute 
+                element={
+                  <AuthRoute 
                   user={user} 
                   component={<Profile buildings = {buildings} user = {user} />} 
                   />} 
-                  
         />
         <Route path="/Login" element={<Login loginUser = {loginUser} loginError = {loginError}/>} />
-        {/* <Route path="/Profile" element={<Profile buildings = {buildings} user = {user}/>} /> */ }
         <Route path="/building/:id" element={<Detail buildings = {buildings} user={user} handleUser={handleUser}/>} />
         <Route path="/Register" element={<Register registerUser = {registerUser}/>} />
-        <Route path="/add" element={<AddBuilding />} />
+        <Route path="/add" 
+                element={
+                  <AuthRoute 
+                  user={user} 
+                  component={<AddBuilding />} 
+                  />} 
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

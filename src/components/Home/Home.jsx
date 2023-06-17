@@ -10,7 +10,7 @@ const Home = ( { buildings } ) => {
   return (
     <div className="b-home">
     
-      <Gallery buildings = {buildings}  flagAdd = {true} />
+      <Gallery buildings = {buildings}  flagProfile = {false} />
     </div>
   )
 }

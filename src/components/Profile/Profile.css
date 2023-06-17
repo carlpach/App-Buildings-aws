@@ -1,7 +1,16 @@
 .b-profile {
-    padding: 30px 100px;
+    padding: 30px 80px;
 }
 
 h2 {
     margin: 0;
+}
+
+
+.b-profile__img {
+    width: 200px;
+}
+
+.b-profile__title {
+    padding-left: 80px;
 }

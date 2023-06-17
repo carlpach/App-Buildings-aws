@@ -1,7 +1,7 @@
 import './Gallery.css';
 import { Link } from "react-router-dom"
 
-const Gallery = ({ buildings }) => {
+const Gallery = ({ buildings, flagProfile }) => {
     console.log("this is gallery");
     console.log(buildings);
 
@@ -9,12 +9,13 @@ const Gallery = ({ buildings }) => {
 
   return (
         <div className='b-gallery'>
+        { flagProfile ? <></> :
           <Link to={`/add`} className='b-card__add'>
               <li className='b-card__add'>
                 <div className='b-iconAdd'>+</div>
               </li>      
           </Link>
-
+        }
             {
               buildings.map((item, i) => (
                 <li className='b-card' key={i}>
