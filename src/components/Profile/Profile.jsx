@@ -3,7 +3,8 @@ import "./Profile.css"
 
 const Profile = ( { buildings, user }) => {
   console.log("Profile running ------->");
-  console.log("user data -------", user.user);
+  console.log("user data -------", user);
+  console.log("user user data -------", user.user);
     
   const buildingsUser = buildings.filter((buildg) => (
     user.user.properties.includes(buildg._id) 

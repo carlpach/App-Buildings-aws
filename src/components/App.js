@@ -32,7 +32,8 @@ function App() {
     setUser(value);
   };
 
-  // formData es lo que ya ha rellenado el usuario. En esta variable se almacena informacion sobre usuario en caso de existir. Se ejecuta funcion cuando se rellena el formulario de Login
+  // formData es lo que ya ha rellenado el usuario. En esta variable se almacena informacion sobre usuario en caso de existir. 
+  // Se ejecuta funcion cuando se rellena el formulario de Login
   const loginUser = (formData) => {
     console.log("login user ---------------");
     console.log(formData);
@@ -56,29 +57,29 @@ function App() {
       )
     }
   
-    const registerUser = (formData) => {
-      console.log("register user ---------------");
-      console.log(formData);
-      APIJson.post(`/users/register`, formData)
-      .then( (resp) => {
-                console.log(formData);
-                console.log(resp);
-                setTimeout(() => {
-                    navigate('/profile');    
-                }, 500);
-                setUser(resp.data);
-                setLoginError ("");
-                navigate("/")
-                return resp.data
-              },
-  
-              (error) => {
-                  setUser (false)
-                  setLoginError ("Wrong user or password")
-                  console.log(error);
-                    }
-        )
-      }
+  const registerUser = (formData) => {
+    console.log("register user ------------");
+    console.log(formData);
+    APIJson.post(`/users/register`, formData)
+    .then( (resp) => {
+              console.log(formData);
+              console.log(resp);
+              setTimeout(() => {
+                  navigate('/profile');    
+              }, 500);
+              setUser(resp.data);
+              console.log("resp.data user --------->", resp.data);
+              setLoginError ("");
+              return resp.data
+            },
+
+            (error) => {
+                setUser (false)
+                setLoginError ("Wrong user or password")
+                console.log(error);
+                  }
+      )
+    }
 
   useEffect(() => {
     API.get("/properties")
@@ -90,7 +91,7 @@ function App() {
         console.log(error);
       }
     );
-  }, [buildings]);
+  }, []);
 
 
   return (

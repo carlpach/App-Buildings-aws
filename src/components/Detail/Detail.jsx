@@ -9,40 +9,50 @@ const Detail = ({ buildings, user, handleUser }) => {
     console.log("detail page running -------");
     console.log(user);
 
-    const { id } = useParams()
-    console.log(id)
+    const { buildingId } = useParams()
+    console.log("Buldingid-----", buildingId)
     console.log(buildings)
     const building = buildings.find((item) => (
-      item._id === id
+      item._id === buildingId
     ))
+
+ 
     console.log(building)
 
     const handleAddBuildingToUser = (ev) => {
         console.log("handle click add build to user -------");
-        console.log(id);
-        APIJson.put(`/users/${id}`, {_id: user.user._id})
+
+        // check if buidling exists in user
+        if (user.user.properties.includes(buildingId)) {
+          alert(`Building already added to ${user.user.userName}`)
+          
+        } else {
+
+        console.log(buildingId);
+        APIJson.put(`/users/${buildingId}`, {_id: user.user._id})
         .then( (resp) => {
                 console.log(resp);
                 alert(`Added to user ${user.user.userName}`)
                 setTimeout(() => {
-                    navigate('/');    
+                    navigate('/profile');    
                 }, 500);
                 
                 console.log("response data ------", resp.data);
-                handleUser(resp.data);
+                handleUser({"user": resp.data, "token": user.token});
                 return resp.data
                 },
                 (error) => {
                     console.log(error);
                 }
         )
+        }
     }
 
 
     const handleDeleteBuildingToUser = (ev) => {
       console.log("handle click add build to user -------");
-      console.log(id);
-      APIJson.put(`/users/${id}`, {_id: user.user._id})
+      console.log(buildingId);
+      APIJson.put(`/users/${buildingId}`, {_id: user.user._id})
       .then( (resp) => {
               console.log(resp);
               alert(`Deleted for user ${user.user.userName}`)

@@ -14,7 +14,7 @@ const NavBar = () => {
       </div>
       <div className="b-navbar__item">
           <Link to="/Login">
-            <span class="material-icons">login</span>
+            <span className="material-icons">login</span>
           </Link>
 
           <Link to="/Login">
