@@ -35,7 +35,7 @@ const Detail = ({ buildings, user, handleUser }) => {
                 alert(`Added to user ${user.user.userName}`)
                 setTimeout(() => {
                     navigate('/profile');    
-                }, 500);
+                }, 300);
                 
                 console.log("response data ------", resp.data);
                 handleUser({"user": resp.data, "token": user.token});
@@ -75,13 +75,17 @@ const Detail = ({ buildings, user, handleUser }) => {
         <div className='b-detail'>
           <img className='b-detail__img' src={building.image} alt='building'/>
           <div className='b-detail__text'>
-            <h2>{building.name}</h2>
-            <h3>{building.constructionYear}</h3>            
+            <div>
+              <h2>{building.name}</h2>
+              <h4>{building.constructionYear}</h4>              
+            </div>
+        
+            <div>
+              <span onClick={ handleAddBuildingToUser } className="material-icons material-icons--grey">post_add</span>
+              <span onClick={ handleDeleteBuildingToUser } className="material-icons material-icons--red">delete</span>
+            </div>            
           </div>
-          <div>
-          <span onClick={ handleAddBuildingToUser } className="material-icons material-icons--grey">post_add</span>
-          <span onClick={ handleDeleteBuildingToUser } className="material-icons material-icons--red">delete</span>
-          </div>
+
               
         </div>      
       </>

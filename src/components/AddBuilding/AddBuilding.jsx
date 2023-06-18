@@ -13,7 +13,7 @@ const initState = {
 
 }
 
-const AddBuilding = () => {
+const AddBuilding = ({ handleRender }) => {
 
     const [formInputs, setFormInputs] = useState(initState);
 
@@ -29,8 +29,8 @@ const AddBuilding = () => {
                 setTimeout(() => {
                     navigate('/');
                     
-                }, 500);
-
+                }, 300);
+                handleRender();
                 return resp.data
             },
             (error) => {

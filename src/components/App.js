@@ -1,4 +1,4 @@
-import '../styles/App.css';
+import './App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { API } from "../services/api";
 import { APIJson } from "../services/api";
@@ -19,9 +19,9 @@ import Register from './Register/Register';
 function App() {
 
   console.log("running app");
+  const navigate = useNavigate ()
 
-  // crear variable de estado que va a contenter informacion del usuario. Null porque usuario aun no esta definido
-
+  // crear variable de estado que va a contenter informacion del usuario.
   const initStateUser = {
     user: {
       email: "",
@@ -32,12 +32,15 @@ function App() {
 
   const [user, setUser] = useState (initStateUser);
   const [loginError, setLoginError] = useState ("");
-  const navigate = useNavigate ()
-
   const [buildings, setBuildings] = useState([]);
+  const [render, setRender] = useState(0);
 
   const handleUser = (value) => {
     setUser(value);
+  };
+
+  const handleRender = () => {
+    setRender(render+1);
   };
 
   // formData es lo que ya ha rellenado el usuario. En esta variable se almacena informacion sobre usuario en caso de existir. 
@@ -99,7 +102,7 @@ function App() {
         console.log(error);
       }
     );
-  }, []);
+  }, [render]);
 
   console.log("user in App ------>", user);
   console.log("buildings in App ------>", buildings);
@@ -128,7 +131,7 @@ function App() {
                 element={
                   <AuthRoute 
                   user={user} 
-                  component={<AddBuilding />} 
+                  component={<AddBuilding handleRender= { handleRender } />} 
                   />} 
         />
         <Route path="*" element={<NotFound />} />

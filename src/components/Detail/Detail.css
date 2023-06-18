@@ -11,19 +11,15 @@
 }
 
 .b-detail__text {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     text-align: start;
-    margin: 20px;
+    margin: 10px 20px;
 }
 
-
-.material-icons--grey {
-
-    color: rgb(61, 182, 67);
-  
-  }
-
-.material-icons--red {
-
-color: rgb(223, 101, 31);
-
+.b-detail__item{
+    display: inline-block;
+    margin-right: 20px;
 }
+

@@ -13,7 +13,8 @@
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-    color: white;
+    color: rgb(228, 228, 228);
+    cursor: pointer;
   
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
@@ -25,4 +26,19 @@
   
     /* Support for IE. */
     font-feature-settings: 'liga';
+  }
+
+  .material-icons:hover {
+    color: rgb(51, 51, 51);
+  }
+
+  .material-icons--grey {
+
+    color: rgb(61, 182, 67);
+  }
+
+  .material-icons--red {
+
+      color: rgb(223, 101, 31);
+
   }
