@@ -58,16 +58,19 @@ const AddBuilding = () => {
       <form className="b-form" onSubmit={(ev) => ev.preventDefault()}>
         
         <label htmlFor="name">Name of Building</label>
-        <input type="text" id="name" name="name" placeholder="lake Residence" onChange={handleInput} value= {formInputs.name}></input>
+        <input type="text" id="name" name="name" placeholder="Woko Residence " onChange={handleInput} value= {formInputs.name}></input>
 
         <label htmlFor="name">Construction Year</label>
         <input type="text" name="constructionYear" placeholder="2020" onChange={handleInput} value= {formInputs.constructionYear}></input>
 
         <label htmlFor="name">Image</label>
         <input type="file" id="image" name="image" onChange={handleInputImg}></input>
-
+        {
+        formInputs.image ? <img src={ URL.createObjectURL(formInputs.image) } alt="upload"/> : <></>
+        }
         <input type="submit" value="Add Building" onClick={handleSubmit}></input>
       </form>
+
     </div>
   )
 }
