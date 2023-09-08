@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    color: rgb(228, 228, 228);
+    cursor: pointer;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+
+  .material-icons:hover {
+    color: rgb(51, 51, 51);
+  }
+
+  .material-icons--grey {
+
+    color: rgb(61, 182, 67);
+  }
+
+  .material-icons--red {
+
+      color: rgb(223, 101, 31);
+
+  }

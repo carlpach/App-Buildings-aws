@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+
+.b-detail {
+    display: flex;
+    padding: 12% 10%;
+}
+
+.b-detail__img {
+    width: 40%;
+}
+
+.b-detail__text {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: start;
+    margin: 10px 20px;
+}
+
+.b-detail__item{
+    display: inline-block;
+    margin-right: 20px;
+}
+

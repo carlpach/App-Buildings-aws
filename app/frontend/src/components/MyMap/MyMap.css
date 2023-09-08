@@ -1,0 +1,14 @@
+
+.b-map {
+    width: 100%;
+    padding: 20px 20px 20px 80px;
+    z-index: -1;
+    margin: 0 0%;
+    box-sizing: border-box;
+}
+
+
+.map-container {
+    height: 400px; 
+    box-shadow: rgba(43, 43, 44, 0.2) 0px 8px 24px;
+}
