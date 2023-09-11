@@ -41,7 +41,7 @@ const Home = ( { buildings } ) => {
     try {
       sortedFilteredBuildings = FilteredBuildings.sort((r1, r2) => (r1[sortVal].toLowerCase() > r2[sortVal].toLowerCase()) ? 1 : (r1[sortVal].toLowerCase() < r2[sortVal].toLowerCase()) ? -1 : 0);
 
-    } catch {
+    } catch (error) {
       sortedFilteredBuildings = FilteredBuildings.sort((r1, r2) => (r1[sortVal] > r2[sortVal]) ? 1 : (r1[sortVal] < r2[sortVal]) ? -1 : 0);
 
     }

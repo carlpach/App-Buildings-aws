@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Fragment } from 'react-router-dom';
 import { API } from "../services/api";
 import { APIJson } from "../services/api";
 
@@ -109,7 +109,7 @@ function App() {
 
   return (
     <div>
-      { user.user.email ? <NavBar /> : <></> }
+      { user.user.email ? <NavBar /> : <Fragment></Fragment> }
       <Routes>
         <Route path="/" element={
                   <AuthRoute 

@@ -1,5 +1,6 @@
 import './Gallery.css';
 import { Link } from "react-router-dom"
+import { Fragment } from "react";
 
 const Gallery = ({ buildings, flagProfile }) => {
     console.log("this is gallery");
@@ -9,7 +10,7 @@ const Gallery = ({ buildings, flagProfile }) => {
 
   return (
       <div className='b-gallery'>
-      { flagProfile ? <></> :
+      { flagProfile ? <Fragment></Fragment> :
         <Link to={`/add`} className='b-card__add'>
             <li className='b-card__add'>
               <div className='b-iconAdd'>+</div>

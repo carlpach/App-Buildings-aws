@@ -25,7 +25,7 @@ const MyMap = ( { buildings }) => {
             try {
               latBldg = buildg.geometry.location.lat;
               lngBldg  = buildg.geometry.location.lng; 
-            } catch {            
+            } catch (error) {            
             }
             return <Marker key={i} position={{ lat: latBldg, lng: lngBldg }} />
           })

@@ -1,5 +1,6 @@
 import Gallery from "../Gallery/Gallery";
 import "./Profile.css"
+import { Fragment } from "react";
 
 const Profile = ( { buildings, user }) => {
   console.log("Profile running ------->");
@@ -11,7 +12,7 @@ const Profile = ( { buildings, user }) => {
   const placeholderImg = "https://www.mountsinai.on.ca/wellbeing/our-team/team-images/person-placeholder/image";
 
    return (
-    <>
+    <Fragment>
       <div className="b-profile">
         <img className="b-profile__img" src={user.user.image ? user.user.image : placeholderImg} alt="user"/>
         <h2>{user.user.userName}</h2>
@@ -19,7 +20,7 @@ const Profile = ( { buildings, user }) => {
       </div>
         <h2 className="b-profile__title">My buildings</h2>        
       <Gallery buildings = {buildingsUser} flagProfile = {true} />
-    </>
+    </Fragment>
   )
 }
 

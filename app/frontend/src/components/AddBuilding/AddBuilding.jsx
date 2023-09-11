@@ -1,6 +1,6 @@
 import "./AddBuilding.css";
 
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { useNavigate } from 'react-router-dom';
 
 import  { API }  from "../../services/api";
@@ -66,7 +66,7 @@ const AddBuilding = ({ handleRender }) => {
         <label htmlFor="name">Image</label>
         <input type="file" id="image" name="image" onChange={handleInputImg}></input>
         {
-        formInputs.image ? <img src={ URL.createObjectURL(formInputs.image) } alt="upload"/> : <></>
+        formInputs.image ? <img src={ URL.createObjectURL(formInputs.image) } alt="upload"/> : <Fragment></Fragment>
         }
         <input type="submit" value="Add Building" onClick={handleSubmit}></input>
       </form>

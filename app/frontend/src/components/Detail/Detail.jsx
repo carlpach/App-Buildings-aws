@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import "./Detail.css";
 import { useNavigate } from 'react-router-dom';
 import  { APIJson }  from "../../services/api";
+import { Fragment } from "react";
 
 const Detail = ({ buildings, user, handleUser }) => {
 
@@ -71,7 +72,7 @@ const Detail = ({ buildings, user, handleUser }) => {
   }
 
   return (
-      <>
+      <Fragment>
         <div className='b-detail'>
           <img className='b-detail__img' src={building.image} alt='building'/>
           <div className='b-detail__text'>
@@ -88,7 +89,7 @@ const Detail = ({ buildings, user, handleUser }) => {
 
               
         </div>      
-      </>
+      </Fragment>
 
   )
 }

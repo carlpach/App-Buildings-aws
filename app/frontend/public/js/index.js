@@ -5,16 +5,16 @@ import App from './components/App';
 // import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
-const config = {
+var config = {
   apiPrefix: '/dev'
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
+var root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(React.createElement(
+  BrowserRouter,
+  null,
+  React.createElement(App, null)
+));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
