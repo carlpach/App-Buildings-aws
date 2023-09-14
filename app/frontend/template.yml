@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Deploy a React App to S3 Bucket
+
+Parameters:
+  AppName:
+    Type: String
+    Default: MyApp
+    Description: The name of your React app
+
+Resources:
+  ReactAppBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+
+  ReactAppDeployment:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location:
+        ApplicationId: arn:aws:serverlessrepo:us-east-1:123456789012:applications/MyReactApp
+        SemanticVersion: 1.0.0
+
+Outputs:
+  ReactAppBucketName:
+    Description: The name of the S3 bucket for the React app
+    Value: !Ref ReactAppBucket

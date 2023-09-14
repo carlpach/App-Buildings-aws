@@ -1,5 +1,6 @@
 import './App.css';
-import { Routes, Route, useNavigate, Fragment } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Fragment } from 'react';
 import { API } from "../services/api";
 import { APIJson } from "../services/api";
 
